@@ -2,6 +2,7 @@ import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { ModeToggle } from "./mode-toggle";
 
 const Navbar = async () => {
   return (
@@ -49,6 +50,9 @@ const Navbar = async () => {
           </span>
         </Link>
         {/* {user ? <UserButton afterSignOutUrl="/" /> : null} */}
+        <div className="flex gap-8 justify-center flex-col">
+          <ModeToggle />
+        </div>
         <MenuIcon className="md:hidden" />
       </aside>
     </header>

@@ -76,9 +76,6 @@ const MenuOptions = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="flex bottom-0 justify-end flex-col gap-8">
-        <ModeToggle />
-      </div>
     </nav>
   );
 };
