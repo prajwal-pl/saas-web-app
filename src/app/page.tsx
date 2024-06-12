@@ -1,12 +1,17 @@
-import { CardBody, CardContainer, CardItem } from "@/components/global/3d-card";
-import { ContainerScroll } from "@/components/global/ContainerScroll";
-import Footer from "@/components/global/Footer";
-import { HeroParallax } from "@/components/global/hero-parallax";
-import { InfiniteMovingCards } from "@/components/global/inf-moving-cards";
-import { LampComponent } from "@/components/global/lamp-component";
-import Navbar from "@/components/global/Navbar";
-import { Button } from "@/components/ui/button";
-import { clients, products } from "@/lib/constant";
+import * as React from "react";
+import {
+  CardBody,
+  CardContainer,
+  CardItem,
+} from "../components/global/3d-card";
+import { ContainerScroll } from "../components/global/ContainerScroll";
+import Footer from "../components/global/Footer";
+import { HeroParallax } from "../components/global/hero-parallax";
+import { InfiniteMovingCards } from "../components/global/inf-moving-cards";
+import { LampComponent } from "../components/global/lamp-component";
+import Navbar from "../components/global/Navbar";
+import { Button } from "../components/ui/button";
+import { clients, products } from "../lib/constant";
 import { CheckIcon } from "lucide-react";
 
 export default function Home() {

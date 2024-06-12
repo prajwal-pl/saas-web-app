@@ -7,7 +7,7 @@ import type { Container, Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
 import { motion, useAnimation } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 type ParticlesProps = {
   id?: string;
@@ -43,7 +43,6 @@ export const SparklesCore = (props: ParticlesProps) => {
 
   const particlesLoaded = async (container?: Container) => {
     if (container) {
-      console.log(container);
       controls.start({
         opacity: 1,
         transition: {
