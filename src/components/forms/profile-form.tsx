@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -22,22 +22,40 @@ const formSchema = z.object({
   username: z.string().min(2).max(50),
 });
 
-type Props = {};
+type Props = {
+  user: any;
+  onUpdate?: any;
+};
 
-const ProfileForm = (props: Props) => {
+const ProfileForm = ({ user, onUpdate }: Props) => {
   const [loading, setloading] = useState(false);
   const form = useForm<z.infer<typeof EditUserProfileSchema>>({
     mode: "onChange",
     resolver: zodResolver(EditUserProfileSchema),
     defaultValues: {
-      name: "",
-      email: "",
+      name: user.name,
+      email: user.email,
     },
   });
 
+  const handleSubmit = async (
+    values: z.infer<typeof EditUserProfileSchema>
+  ) => {
+    setloading(true);
+    await onUpdate(values.name);
+    setloading(false);
+  };
+
+  useEffect(() => {
+    form.reset({ name: user.name, email: user.email });
+  }, [user]);
+
   return (
     <Form {...form}>
-      <form className="flex flex-col gap-6" onSubmit={() => {}}>
+      <form
+        className="flex flex-col gap-6"
+        onSubmit={form.handleSubmit(handleSubmit)}
+      >
         <FormField
           disabled={loading}
           control={form.control}
@@ -46,7 +64,7 @@ const ProfileForm = (props: Props) => {
             <FormItem>
               <FormLabel className="text-lg">Username</FormLabel>
               <FormControl>
-                <Input placeholder="Name" {...field} />
+                <Input {...field} placeholder="Name" />
               </FormControl>
               <FormDescription>
                 This is your public display name.
@@ -56,16 +74,19 @@ const ProfileForm = (props: Props) => {
           )}
         />
         <FormField
-          disabled={true}
           control={form.control}
-          name="name"
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-lg">Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" type="email" disabled {...field} />
+                <Input
+                  {...field}
+                  placeholder="Email"
+                  type="email"
+                  disabled={true}
+                />
               </FormControl>
-              <FormDescription>This is your public email.</FormDescription>
               <FormMessage />
             </FormItem>
           )}

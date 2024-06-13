@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 LR.registerBlocks(LR);
 
 type Props = {
-  onUpload?: any;
+  onUpload: (e: string) => any;
 };
 
 const UploadCareButton = ({ onUpload }: Props) => {
