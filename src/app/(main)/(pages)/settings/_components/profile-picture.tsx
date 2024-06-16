@@ -27,7 +27,7 @@ const ProfilePicture = ({ onUpload, onDelete, userImage }: Props) => {
         {userImage ? (
           <>
             <div className="relative h-full w-2/12">
-              <Image src={userImage} alt="Profile Pic" fill />
+              <Image fill src={userImage} alt="Profile Pic" />
             </div>
             <Button
               onClick={onRemoveImage}
