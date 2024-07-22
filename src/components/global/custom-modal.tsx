@@ -29,11 +29,13 @@ const CustomModal = ({ children, title, subHeading, defaultOpen }: Props) => {
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle className="text-center">{title}</DrawerTitle>
-          <DrawerDescription className="text-center flex flex-col items-center gap-4 h-96 overflow-scroll">
+          <DrawerDescription className="text-center flex flex-col items-center gap-4 overflow-scroll">
             {subHeading}
-            {children}
           </DrawerDescription>
         </DrawerHeader>
+        <div className="text-center flex flex-col items-center h-96 overflow-scroll">
+          {children}
+        </div>
         <DrawerFooter className="flex flex-col gap-4 bg-background border-t-[1px] border-t-muted">
           <DrawerClose asChild>
             <Button variant="ghost" className="w-full" onClick={handleClose}>
@@ -43,6 +45,27 @@ const CustomModal = ({ children, title, subHeading, defaultOpen }: Props) => {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
+    // <Sheet>
+    //   <SheetContent side={"bottom"}>
+    //     <SheetHeader>
+    //       <SheetTrigger asChild>
+    //         <Plus />
+    //       </SheetTrigger>
+    //       <SheetTitle className="text-center">{title}</SheetTitle>
+    //       <SheetDescription className="text-center flex flex-col items-center gap-4 h-96 overflow-scroll">
+    //         {subHeading}
+    //         {children}
+    //       </SheetDescription>
+    //     </SheetHeader>
+    //     <SheetFooter className="flex flex-col gap-4 bg-background border-t-[1px] border-t-muted">
+    //       <SheetClose asChild>
+    //         <Button variant="ghost" className="w-full" onClick={handleClose}>
+    //           Close
+    //         </Button>
+    //       </SheetClose>
+    //     </SheetFooter>
+    //   </SheetContent>
+    // </Sheet>
   );
 };
 

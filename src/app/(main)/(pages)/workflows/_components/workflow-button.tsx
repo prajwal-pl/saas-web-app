@@ -22,7 +22,7 @@ const WorkflowButton = (props: Props) => {
     );
   };
   return (
-    <Button onClick={handleClick} size={"icon"}>
+    <Button onClick={handleClick} size={"icon"} variant={"ghost"}>
       <Plus />
     </Button>
   );
