@@ -12,17 +12,20 @@ type ModalContextType = {
   isOpen: boolean;
   setOpen: (modal: React.ReactNode, fetchData?: () => Promise<any>) => void;
   setClose: () => void;
+  // isClosing: boolean;
 };
 
 export const ModalContext = createContext<ModalContextType>({
   data: {},
   isOpen: false,
   setOpen: (modal: React.ReactNode, fetchData?: () => Promise<any>) => {},
+  // isClosing: false,
   setClose: () => {},
 });
 
 const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // const [isClosing, setIsClosing] = useState(false);
   const [data, setData] = useState<ModalData>({});
   const [showingModal, setShowingModal] = useState<React.ReactNode>(null);
   const [isMounted, setIsMounted] = useState(false);
@@ -45,7 +48,8 @@ const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
   };
 
   const setClose = async () => {
-    setOpen(false);
+    // setIsClosing(true);
+    setIsOpen(false);
     setData({});
   };
 

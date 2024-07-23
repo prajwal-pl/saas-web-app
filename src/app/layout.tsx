@@ -18,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-    >
-      <html lang="en" suppressHydrationWarning>
-        <body className={font.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={font.className}>
+        <ClerkProvider
+          publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+        >
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -31,8 +31,8 @@ export default function RootLayout({
           >
             <ModalProvider>{children}</ModalProvider>
           </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
