@@ -196,7 +196,7 @@ export default function Home() {
           </CardContainer>
         </div>
       </section>
-      <Footer />
+      <Footer />{" "}
     </main>
   );
 }
